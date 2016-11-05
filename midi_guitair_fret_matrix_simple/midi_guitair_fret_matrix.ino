@@ -54,15 +54,11 @@ void loop() {
    digitalWrite(stringPins[i], LOW);
    if (newNote != currentNote[i]){
       MIDImessage(noteOFF, (currentNote[i]+stringOffsets[i]+BASENOTE), VELOCITY);
-//Uncomment these to make a major triad for each note
-//      MIDImessage(noteOFF, (currentNote[i]+stringOffsets[i]+encoderPos+4), VELOCITY);
-//      MIDImessage(noteOFF, (currentNote[i]+stringOffsets[i]+encoderPos+7), VELOCITY);
+
     if (newNote != 0){
         MIDImessage(noteON, (newNote+stringOffsets[i]+BASENOTE), VELOCITY);
-//        MIDImessage(noteON, (newNote+stringOffsets[i]+encoderPos+4), VELOCITY);
-//        MIDImessage(noteON, (newNote+stringOffsets[i]+encoderPos+7), VELOCITY);
-      }
-      currentNote[i] = newNote;
+    }
+    currentNote[i] = newNote;
    }
  // delay();
   }
